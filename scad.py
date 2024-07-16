@@ -46,7 +46,7 @@ def make_scad(**kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["thickness"] = 12
         p3["width"] = 2
-        p3["height"] = 6
+        p3["height"] = 7
         wire_diameter = 8
         p3["wire_diameter"] = wire_diameter
         wire_spacing = 10
