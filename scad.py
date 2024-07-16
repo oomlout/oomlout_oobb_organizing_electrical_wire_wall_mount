@@ -47,9 +47,9 @@ def make_scad(**kwargs):
         p3["thickness"] = 12
         p3["width"] = 2
         p3["height"] = 5
-        wire_diameter = 5
+        wire_diameter = 7
         p3["wire_diameter"] = wire_diameter
-        wire_spacing = 7.5
+        wire_spacing = 10
         p3["wire_spacing"] = wire_spacing
         wire_count = 3
         p3["wire_count"] = wire_count
@@ -103,7 +103,7 @@ def get_base(thing, **kwargs):
         p3["holes"] = "single"
         locs = []
         for i in range(width):
-            rows  = [1,2,height-1,height]
+            rows  = [1,height]
             for row in rows:
                 locs.append([i+1,row])
         p3["loc"] = locs
@@ -121,7 +121,7 @@ def get_base(thing, **kwargs):
         p3["holes"] = "single"
         locs = []
         for i in range(width):
-            rows = [1,1.5,2,height-1,height-0.5,height]
+            rows = [1,1.5,height-0.5,height]
             for row in rows:
                 locs.append([i+1,row])
                 if i != width-1:
@@ -193,8 +193,8 @@ def get_base(thing, **kwargs):
         p3["type"] = "n"
         p3["shape"] = f"oobb_screw_countersunk"
         p3["depth"] = depth/2
-        p3["radius_name"] = "m3"
-        p3["m"] = "#"
+        p3["radius_name"] = "m3_screw_wood"
+        #p3["m"] = "#"
         p3["pos"] = poss        
         p3["nut"] = False    
         oobb_base.append_full(thing,**p3)
