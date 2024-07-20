@@ -11,8 +11,8 @@ def make_scad(**kwargs):
 
     # save_type variables
     if True:
-        #filter = ""
-        filter = "4_wires"
+        filter = ""
+        #filter = "3_wire"
 
         #kwargs["save_type"] = "none"
         kwargs["save_type"] = "all"
@@ -60,7 +60,7 @@ def make_scad(**kwargs):
         p3["wire_spacing"] = wire_spacing        
         p3["wire_count"] = wire_count
         part["kwargs"] = p3
-        part["name"] = f"base_{wire_count}_wires_{wire_spacing}_spacing_{wire_diameter}_wire_diameter"
+        part["name"] = f"base_{wire_count}_wire_{wire_spacing}_spacing_{wire_diameter}_wire_diameter"
         parts.append(part)
 
         #4 wire
@@ -83,6 +83,17 @@ def make_scad(**kwargs):
         part["name"] = f"base_{wire_count}_wires_{wire_spacing}_spacing_{wire_diameter}_wire_diameter"
         parts.append(part)
 
+        #3 wire
+        part = copy.deepcopy(part_default)
+        p3 = copy.deepcopy(p3)
+        wire_count = 3
+        p3["wire_count"] = wire_count
+        part["kwargs"] = p3
+        part["name"] = f"base_{wire_count}_wires_{wire_spacing}_spacing_{wire_diameter}_wire_diameter"
+        parts.append(part)
+
+
+        
 
         
     #make the parts
