@@ -11,8 +11,9 @@ def make_scad(**kwargs):
 
     # save_type variables
     if True:
-        #filter = ""
-        filter = "4_wire"
+        filter = ""
+        #filter = "5_wire_7.5_spacing_5_wire_diameter"
+        #filter = "4_wire"
 
         #kwargs["save_type"] = "none"
         kwargs["save_type"] = "all"
@@ -43,25 +44,36 @@ def make_scad(**kwargs):
         part_default["full_rotations"] = [0, 0, 0]
         
 
-        widths = [1,2]
-        wire_diameters = [6,7,8]
+        
+        
+
 
         wire_heights = []
-        wire_heights.append({"height": 7, "wire_count":6})
-        wire_heights.append({"height": 5, "wire_count":4})
-        wire_heights.append({"height": 5, "wire_count":3})
+        #wire spacing 10
+        widths = [1,2]
+        wire_diameters_main = [6,7,8]
+        wire_diameters_small = [4,5,6]
+        wire_heights.append({"height": 7, "wire_count":6, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":5, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
 
-        for wid in widths:
-            for wire_diameter in wire_diameters:
-                for wire_height in wire_heights:
+        for wire_height in wire_heights:
+            wire_diameters = wire_height["wire_diameters"]
+            widths = wire_height["widths"]
+            for wid in widths:
+                for wire_diameter in wire_diameters:
+                    wire_spacing = wire_height["wire_spacing"]
+                    thickness = wire_height["thickness"]
                     #6 wire
                     part = copy.deepcopy(part_default)        
                     p3 = copy.deepcopy(kwargs)
-                    thickness = 12
+                    thickness = thickness
                     width = wid
                     height = wire_height["height"]
                     wire_diameter = wire_diameter
-                    wire_spacing = 10
+                    wire_spacing = wire_spacing
                     wire_count = wire_height["wire_count"]
 
                     p3["thickness"] = thickness
