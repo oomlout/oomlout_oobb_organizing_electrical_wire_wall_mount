@@ -14,7 +14,7 @@ def make_scad(**kwargs):
         filter = ""
         #filter = "5_wire_7.5_spacing_5_wire_diameter"
         #filter = "4_wire"
-        filter = "ninety_degree"
+        #filter = "ninety_degree"
 
         #kwargs["save_type"] = "none"
         kwargs["save_type"] = "all"
@@ -53,12 +53,16 @@ def make_scad(**kwargs):
         #wire spacing 10
         widths = [1,2]
         wire_diameters_main = [6,7,8]
-        wire_diameters_small = [4,5,6]
+        wire_diameters_small = [4,4.5,5,6]
+        
+        #wire_diameters_small = [4.5]
+
         wire_heights.append({"height": 7, "wire_count":6, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":5, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
+        wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
 
         for wire_height in wire_heights:
             wire_diameters = wire_height["wire_diameters"]
