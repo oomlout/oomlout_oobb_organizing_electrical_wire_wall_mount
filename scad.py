@@ -58,17 +58,17 @@ def make_scad(**kwargs):
         
         #wire_diameters_small = [4.5]
 
-        #wire_heights.append({"height": 7, "wire_count":6, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
-        #wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 7, "wire_count":6, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 12})
-        #wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
-        #wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
-        #wire_heights.append({"height": 5, "wire_count":5, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
+        wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":3, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 5, "wire_count":5, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
         
         
         #single wire ones        ]
-        #wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
-        #wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 9})
+        wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
+        wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 9})
 
         for wire_height in wire_heights:
             wire_diameters = wire_height["wire_diameters"]
