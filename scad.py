@@ -12,7 +12,7 @@ def make_scad(**kwargs):
     # save_type variables
     if True:
         filter = ""
-        #filter = "5_wire_7.5_spacing_5_wire_diameter"
+        #filter = "3_wire_10_spacing_6_wire"
         #filter = "4_wire"
         #filter = "ninety_degree"
 
@@ -68,7 +68,7 @@ def make_scad(**kwargs):
         
         #single wire ones        ]
         wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 9})
-        wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 9})
+        wire_heights.append({"height": 3, "wire_count":1, "wire_spacing":7.5, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
 
         for wire_height in wire_heights:
             wire_diameters = wire_height["wire_diameters"]
@@ -171,7 +171,8 @@ def get_base(thing, **kwargs):
                     locs.append([i+1,row])
             p3["loc"] = locs
             #p3["m"] = "#"
-            pos1 = copy.deepcopy(pos)         
+            pos1 = copy.deepcopy(pos)    
+            pos1[2] += depth/2     
             p3["pos"] = pos1
             oobb_base.append_full(thing,**p3)
             #add oobe holes
@@ -192,6 +193,7 @@ def get_base(thing, **kwargs):
             p3["loc"] = locs
             #p3["m"] = "#"
             pos1 = copy.deepcopy(pos)
+            pos1[2] += 0
             p3["pos"] = pos1
             oobb_base.append_full(thing,**p3)
         
@@ -234,7 +236,7 @@ def get_base(thing, **kwargs):
             p3["shape"] = f"oobb_screw_countersunk"
             p3["depth"] = depth
             p3["radius_name"] = "m3"
-            #p3["m"] = "#"
+            p3["m"] = "#"
             p3["pos"] = poss            
             p3["overhang"] = True
             p3["nut"] = True    
