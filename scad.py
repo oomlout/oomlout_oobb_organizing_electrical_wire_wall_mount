@@ -332,7 +332,7 @@ def get_base_gland(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "p"
         p3["shape"] = f"oobb_cylinder"    
-        p3["radius"] = depth/2
+        p3["radius"] = 12/2
         dep = (wire_length - inside_gap) / 2
         p3["depth"] = dep
         #p3["m"] = "#"
@@ -356,7 +356,7 @@ def get_base_gland(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "p"
         p3["shape"] = f"oobb_cylinder"    
-        rad = (wire_outer_diameter-0.5)/2
+        rad = (wire_outer_diameter-1)/2
         p3["radius"] = rad
         dep = wire_length
         p3["depth"] = dep
