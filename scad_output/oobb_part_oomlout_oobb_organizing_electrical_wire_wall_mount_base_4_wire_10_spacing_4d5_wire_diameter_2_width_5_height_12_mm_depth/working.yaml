@@ -1,0 +1,23 @@
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+kwargs:
+  height: 5
+  modes:
+  - 3dpr
+  name_base: base
+  overwrite: true
+  save_type: all
+  thickness: 12
+  type: oomlout_oobb_organizing_electrical_wire_wall_mount_base_4_wire_10_spacing_4.5_wire_diameter
+  width: 2
+  wire_count: 4
+  wire_diameter: 4.5
+  wire_spacing: 10
+name: base_4_wire_10_spacing_4.5_wire_diameter
+project_name: oomlout_oobb_organizing_electrical_wire_wall_mount

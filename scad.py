@@ -2,6 +2,8 @@ import copy
 import opsc
 import oobb
 import oobb_base
+import os
+import yaml
 
 def main(**kwargs):
     make_scad(**kwargs)
@@ -12,14 +14,17 @@ def make_scad(**kwargs):
     # save_type variables
     if True:
         filter = ""
-        filter = "gland"
+        #filter = "gland"
+
+        navigation = True
+        #navigation = False
 
         #filter = "3_wire_10_spacing_6_wire"
-        #filter = "4_wire"
+        #filter = "2_wire"
         #filter = "ninety_degree"
 
-        #kwargs["save_type"] = "none"
-        kwargs["save_type"] = "all"
+        kwargs["save_type"] = "none"
+        #kwargs["save_type"] = "all"
         
         kwargs["overwrite"] = True
         
@@ -60,6 +65,9 @@ def make_scad(**kwargs):
         
         #wire_diameters_small = [4.5]
 
+        wire_heights.append({"height": 4, "wire_count":2, "wire_spacing":7.5, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 12})
+        wire_heights.append({"height": 4, "wire_count":2, "wire_spacing":7.5, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
+
         wire_heights.append({"height": 7, "wire_count":6, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_main, "widths": widths,  "thickness": 12})
         wire_heights.append({"height": 5, "wire_count":4, "wire_spacing":10, "wire_diameters": wire_diameters_small, "widths": widths,  "thickness": 12})
@@ -95,7 +103,9 @@ def make_scad(**kwargs):
                     p3["wire_diameter"] = wire_diameter        
                     p3["wire_spacing"] = wire_spacing        
                     p3["wire_count"] = wire_count
+                    p3["name_base"] = f"base"
                     part["kwargs"] = p3
+                    
                     part["name"] = f"base_{wire_count}_wire_{wire_spacing}_spacing_{wire_diameter}_wire_diameter"
                     parts.append(part)
 
@@ -113,7 +123,9 @@ def make_scad(**kwargs):
             p3["wire_spacing"] = 7.5
             p3["wire_count"] = 5
             p3["extra"] = "ninety_degrees"
+            p3["name_base"] = f"ninety_degrees"
             part["kwargs"] = p3
+            
             part["name"] = f"base_{wire_count}_wire_{wire_spacing}_spacing_{wire_diameter}_wire_ninety_degrees"
             parts.append(part)
         
@@ -132,7 +144,10 @@ def make_scad(**kwargs):
             p3["wire_outer_diameter"] = od
             p3["thickness"] = 14
             p3["extra"] = "gland"
+            p3["name_base"] = f"gland"
             part["kwargs"] = p3
+            
+            
             part["name"] = f"gland_{od}_wire_outside_diameter_{id}_wire_inside_diameter"
             parts.append(part)
 
@@ -147,6 +162,30 @@ def make_scad(**kwargs):
                 print(f"done {part['name']}")
             else:
                 print(f"skipping {part['name']}")
+
+
+    if navigation:
+        sort = []
+        sort.append("name_base")
+        sort.append("wire_count")
+        sort.append("wire_spacing")
+        sort.append("height")  
+        sort.append("width")
+        sort.append("thickness")
+        sort.append("wire_diameter")
+
+              
+        
+        #sort.append("flange_extra")
+        #sort.append("flange_depth")
+        #sort.append("thickness")
+        #sort.append("screw_diameter")   
+        
+
+
+
+        generate_navigation(sort=sort)
+
 
 def get_base(thing, **kwargs):
 
@@ -553,6 +592,8 @@ def make_scad_generic(part):
     except:
         get_base(thing, **kwargs)
 
+    folder = f"scad_output/{thing['id']}"
+
     for mode in modes:
         depth = thing.get(
             "depth_mm", thing.get("thickness_mm", 3))
@@ -566,6 +607,54 @@ def make_scad_generic(part):
             start = 0.5
         opsc.opsc_make_object(f'scad_output/{thing["id"]}/{mode}.scad', thing["components"], mode=mode, save_type=save_type, overwrite=overwrite, layers=layers, tilediff=tilediff, start=start)    
 
+    yaml_file = f"{folder}/working.yaml"
+    with open(yaml_file, 'w') as file:
+        yaml.dump(part, file)
+
+
+def generate_navigation(folder="scad_output", sort=["width", "height", "thickness"]):
+    #crawl though all directories in scad_output and load all the working.yaml files
+    parts = {}
+    for root, dirs, files in os.walk(folder):
+        if 'working.yaml' in files:
+            yaml_file = os.path.join(root, 'working.yaml')
+            with open(yaml_file, 'r') as file:
+                part = yaml.safe_load(file)
+                # Process the loaded YAML content as needed
+                part["folder"] = root
+                part_name = root.replace(f"{folder}","")
+                
+                #remove all slashes
+                part_name = part_name.replace("/","").replace("\\","")
+                parts[part_name] = part
+
+                print(f"Loaded {yaml_file}: {part}")
+
+    pass
+    for part_id in parts:
+        part = parts[part_id]
+        kwarg_copy = copy.deepcopy(part["kwargs"])
+        folder_navigation = "navigation_oobb"
+        folder_source = part["folder"]
+        folder_extra = ""
+        for s in sort:
+            if s == "name":
+                ex = part.get("name", "default")
+            else:
+                ex = kwarg_copy.get(s, "default")
+            folder_extra += f"{s}_{ex}/"
+        #replace "." with d
+        folder_extra = folder_extra.replace(".","d")
+        folder_destination = f"{folder_navigation}/{folder_extra}"
+        if not os.path.exists(folder_destination):
+            os.makedirs(folder_destination)
+        if os.name == 'nt':
+            #copy a full directory
+            command = f'xcopy "{folder_source}" "{folder_destination}" /E /I /Y'
+            print(command)
+            os.system(command)
+        else:
+            os.system(f"cp {folder_source} {folder_destination}")
 
 if __name__ == '__main__':
     kwargs = {}

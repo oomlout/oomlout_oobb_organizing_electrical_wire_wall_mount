@@ -1,0 +1,23 @@
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+kwargs:
+  extra: gland
+  height: 1
+  modes:
+  - 3dpr
+  name_base: gland
+  overwrite: true
+  save_type: all
+  thickness: 14
+  type: oomlout_oobb_organizing_electrical_wire_wall_mount_gland_8_wire_outside_diameter_6_wire_inside_diameter
+  width: 1
+  wire_inner_diameter: 6
+  wire_outer_diameter: 8
+name: gland_8_wire_outside_diameter_6_wire_inside_diameter
+project_name: oomlout_oobb_organizing_electrical_wire_wall_mount

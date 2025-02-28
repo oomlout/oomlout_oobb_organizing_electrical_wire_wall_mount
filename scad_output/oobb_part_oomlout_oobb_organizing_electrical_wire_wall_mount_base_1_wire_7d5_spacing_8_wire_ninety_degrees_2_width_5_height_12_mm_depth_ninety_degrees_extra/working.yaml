@@ -1,0 +1,24 @@
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+kwargs:
+  extra: ninety_degrees
+  height: 5
+  modes:
+  - 3dpr
+  name_base: ninety_degrees
+  overwrite: true
+  save_type: all
+  thickness: 12
+  type: oomlout_oobb_organizing_electrical_wire_wall_mount_base_1_wire_7.5_spacing_8_wire_ninety_degrees
+  width: 2
+  wire_count: 5
+  wire_diameter: 5
+  wire_spacing: 7.5
+name: base_1_wire_7.5_spacing_8_wire_ninety_degrees
+project_name: oomlout_oobb_organizing_electrical_wire_wall_mount
