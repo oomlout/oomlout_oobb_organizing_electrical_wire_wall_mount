@@ -1,0 +1,47 @@
+classification: project
+color: oomlout_oobb_organizing_electrical_wire
+description_extra: 2_wire_15_spacing_[12, 3]_wire_ninety_degrees_extra
+description_main: ninety_degrees_2_width_5_height_12_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_oobb_organizing_electrical_wire_ninety_degrees_2_width_5_height_12_mm_depth_2_wire_15_spacing_[12,
+  3]_wire_ninety_degrees_extra
+id_oobb: oobb_part_oomlout_oobb_organizing_electrical_wire_ninety_degrees_2_width_5_height_12_mm_depth_2_wire_15_spacing_[12,
+  3]_wire_ninety_degrees_extra
+kwargs:
+  extra: 2_wire_15_spacing_[12, 3]_wire_ninety_degrees
+  filter: ''
+  height: 5
+  modes:
+  - 3dpr
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_oobb_organizing_electrical_wire
+  oomp_description_extra: 2_wire_15_spacing_[12, 3]_wire_ninety_degrees_extra
+  oomp_description_main: ninety_degrees_2_width_5_height_12_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  thickness: 12
+  typ: all
+  type: oomlout_oobb_organizing_electrical_wire_ninety_degrees
+  width: 2
+  wire_count: 5
+  wire_diameter: 5
+  wire_spacing: 7.5
+manufacturer: ''
+name: ninety_degrees
+part_number: ''
+project_name: C:\gh\oomlout_oobb_organizing_electrical_wire_wall_mount
+size: oomlout
+type: github

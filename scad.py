@@ -24,8 +24,8 @@ def make_scad(**kwargs):
     #oomp_mode = "oobb"
 
     if typ == "all":
-        filter = "braided"; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr"]; oomp_run = True
-        #filter = ""; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr"]; oomp_run = True
+        #filter = "braided"; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr"]; oomp_run = True
+        filter = ""; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr"]; oomp_run = True
     elif typ == "fast":
         filter = "braided"; save_type = "none"; navigation = False; overwrite = True; modes = ["3dpr"]; oomp_run = False
         #filter = ""; save_type = "none"; navigation = False; overwrite = True; modes = ["3dpr"]; oomp_run = False

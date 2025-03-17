@@ -1,0 +1,46 @@
+classification: project
+color: oomlout_oobb_organizing_electrical_wire
+description_extra: 4_wire_10_spacing_4.5_wire_diameter_extra
+description_main: base_2_width_5_height_12_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_oobb_organizing_electrical_wire_base_2_width_5_height_12_mm_depth_4_wire_10_spacing_4_5_wire_diameter_extra
+id_oobb: oobb_part_oomlout_oobb_organizing_electrical_wire_base_2_width_5_height_12_mm_depth_4_wire_10_spacing_4d5_wire_diameter_extra
+kwargs:
+  extra: 4_wire_10_spacing_4.5_wire_diameter
+  filter: ''
+  height: 5
+  modes:
+  - 3dpr
+  name_base: base
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_oobb_organizing_electrical_wire
+  oomp_description_extra: 4_wire_10_spacing_4.5_wire_diameter_extra
+  oomp_description_main: base_2_width_5_height_12_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  thickness: 12
+  typ: all
+  type: oomlout_oobb_organizing_electrical_wire_base
+  width: 2
+  wire_count: 4
+  wire_diameter: 4.5
+  wire_spacing: 10
+manufacturer: ''
+name: base
+part_number: ''
+project_name: C:\gh\oomlout_oobb_organizing_electrical_wire_wall_mount
+size: oomlout
+type: github

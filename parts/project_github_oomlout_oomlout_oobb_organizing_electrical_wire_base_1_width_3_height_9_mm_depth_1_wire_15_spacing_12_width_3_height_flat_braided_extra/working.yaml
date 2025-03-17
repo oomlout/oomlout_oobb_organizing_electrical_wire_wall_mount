@@ -14,7 +14,7 @@ id: project_github_oomlout_oomlout_oobb_organizing_electrical_wire_base_1_width_
 id_oobb: oobb_part_oomlout_oobb_organizing_electrical_wire_base_1_width_3_height_9_mm_depth_1_wire_15_spacing_12_width_3_height_flat_braided_extra
 kwargs:
   extra: 1_wire_15_spacing_12_width_3_height_flat_braided
-  filter: braided
+  filter: ''
   height: 3
   modes:
   - 3dpr
